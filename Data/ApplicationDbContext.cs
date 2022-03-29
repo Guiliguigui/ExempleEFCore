@@ -10,9 +10,10 @@ namespace ExempleEFCore.Data
 {
     public class ApplicationDbContext : DbContext
     {
+        // pas nécessaire d'utiliser le constructeur avec options
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source = (LocalDB)\EFCoreDemoDB; Integrated Security = True");
+            optionsBuilder.UseSqlServer(@"Data Source = (LocalDB)\EFCoreDemoDB");
         }
         DbSet<Student> Students { get; set; }
 
