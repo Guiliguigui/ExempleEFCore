@@ -13,10 +13,13 @@ namespace ExempleEFCore.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(@"Data Source = (LocalDB)\EntityBDD;Integrated Security=True");
-        }
+
+        // OnConfiguring est inutile si on utilise les options dans program.cs
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer(@"Data Source = (LocalDB)\EntityBDD;Integrated Security=True");
+        //}
+
         DbSet<Student> Students { get; set; }
 
     }
