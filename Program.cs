@@ -1,5 +1,6 @@
 ﻿using ExempleEFCore.Data;
 using ExempleEFCore.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 
 namespace ExempleEFCore
@@ -8,18 +9,16 @@ namespace ExempleEFCore
     {
         static void Main(string[] args)
         {
-            using (var context = new ApplicationDbContext())
+            using var context = new ApplicationDbContext(new DbContextOptions<ApplicationDbContext>());
+            Student student = new Student()
             {
-                Student student = new Student()
-                {
-                    Firstname = "Anthony",
-                    Lastname = "Di Persio",
-                    Phone = "0607080910",
-                    Email = "anthony@exemple.com",
-                };
-                context.Add(student);
-                context.SaveChanges();
-            }
+                Firstname = "Anthony",
+                Lastname = "Di Persio",
+                Phone = "0607080910",
+                Email = "anthony@exemple.com",
+            };
+            context.Add(student);
+            context.SaveChanges();
         }
     }
 }
