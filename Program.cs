@@ -9,11 +9,12 @@ namespace ExempleEFCore
     {
         static void Main(string[] args)
         {
-            var contextOptions = new DbContextOptionsBuilder<ApplicationDbContext>()
-                .UseSqlServer(@"Data Source = (LocalDB)\EntityBDD;Integrated Security=True")
-                .Options;
+            //var contextOptions = new DbContextOptionsBuilder<ApplicationDbContext>()
+            //    .UseSqlServer(@"Data Source = (LocalDB)\EntityBDD;Integrated Security=True")
+            //    .Options;
 
-            using var context = new ApplicationDbContext(contextOptions); // ne pas oublier le using
+            //using var context = new ApplicationDbContext(contextOptions); // ne pas oublier le using
+            using var context = new ApplicationDbContext();
 
             Student student = new Student()
             {
